@@ -1,3 +1,5 @@
+const githubBaseURL="https://jmortegaf.github.io/alura-forum-frontend/"
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
 
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const data = await response.json();
                 const token=data.token;
                 sessionStorage.setItem('jwt_token',token)
-                window.location.href = '/index.html';
+                window.location.href = `${githubBaseURL}/index.html`;
             }
         } catch (error) {
             console.error('Error during login:', error);

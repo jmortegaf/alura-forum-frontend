@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({ userName, password }),
             });
+            console.log(response)
             if (!response.ok) {
                 const errorData = await response.json();
             } else {

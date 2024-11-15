@@ -1,5 +1,5 @@
 
-const baseURL = 'http://artemis2.ddns.net:8080';
+const baseURL = 'https://artemis2.ddns.net:8080';
 const githubBaseURL="/alura-forum-frontend/"
 
 function getData(endpoint,token) {

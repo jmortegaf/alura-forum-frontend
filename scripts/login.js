@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetch('http://artemis2.ddns.net:8080', {
+            const response = await fetch('https://artemis2.ddns.net:8080', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

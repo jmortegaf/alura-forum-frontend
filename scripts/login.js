@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const data = await response.json();
                 const token=data.token;
                 sessionStorage.setItem('jwt_token',token)
-                window.location.href = `${githubBaseURL}/index.html`;
+                window.location.href = `../index.html`;
             }
         } catch (error) {
             console.error('Error during login:', error);

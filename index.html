@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Index</title>
+</head>
+<body>
+
+    <header id="main-header" hidden>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <button class="navbar-toggle" id="toggle-btn">☰</button>
+            </div>
+            <div class="navbar-right">
+                <a href="#" class="nav-item" id="profile-btn">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="nav-item" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </nav>
+    
+        <aside class="sidebar hidden" id="sidebar">
+            <ul>
+                <li><a href="#" class="nav-item" id="home-btn"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="nav-item" id="popular-btn"><i class="fas fa-fire"></i> Most Popular</a></li>
+                <li><a href="#" class="nav-item" id="new-post-btn"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
+            </ul>
+        </aside>
+    </header>
+
+    <div class="container" id="main-container" hidden>
+        <!--Thread menu will be here-->
+        <div class="new-thread-menu" id="new-thread-menu">
+            <h2>Create a new Thread</h2>
+            <form id="new-thread-form">
+                <input type="text" class="new-thread-title" id="thread-title" autocomplete="off" placeholder="Thread Title" required>
+                <textarea id="thread-message" class="new-thread-message" autocomplete="off" rows="4" placeholder="Thread Content" required></textarea>
+                <input type="button" class="new-thread-btn" id="create-new-thread" value="New Thread" onclick="createNewThread()">
+            </form>
+        </div>
+        <!--Thread will be here-->
+        <div class="threads" id="threads"></div>
+
+        <!--A Thread will be here-->
+        <div class="thread-details" id="thread-details">
+            <div class="thread-card" id="thread-card"></div>
+            <div class="add-reply-card" id="add-thread-reply"></div>
+            <div class="replies-list-card" id="replies-list-card"></div>
+        </div>
+    </div>
+
+    <div class="footer" id="main-footer" hidden>
+        <p>Developed by <a href="https://github.com/jmortegaf" target="_blank">Jmortegaf</a></p>
+    </div>
+
+    <script src="scripts/index.js" type="module"></script>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

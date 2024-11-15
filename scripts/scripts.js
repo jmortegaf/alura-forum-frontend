@@ -52,7 +52,7 @@ function formatDateTime(localdatetime){
 function getValidToken(){
     const token=sessionStorage.getItem('jwt_token');
     // check if token is valid
-    if(token==null)window.location.href = `../login.html`;
+    if(token==null)window.location.href = 'login.html';
     else return token
 }
 function showThreadContent(state){

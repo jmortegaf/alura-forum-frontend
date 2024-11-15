@@ -17,18 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({ userName, password }),
             });
-            console.log(response)
             if (!response.ok) {
                 const errorData = await response.json();
             } else {
                 const data = await response.json();
                 const token=data.token;
                 sessionStorage.setItem('jwt_token',token)
-                window.location.href = `../index.html`;
+                window.location.href = 'index.html';
             }
         } catch (error) {
             console.error('Error during login:', error);
-            console.log(response);
         }
     });
 });

@@ -1,3 +1,5 @@
+const baseURL = 'https://localhost:8080';
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
 
@@ -8,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetch('https://artemis2.ddns.net:8080/login', {
+            const response = await fetch(`${baseURL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,4 +56,24 @@ function showInvalidWarning(input){
 }
 function clearInvalidWarning(input){
     input.setCustomValidity("");
+}
+
+function anonymousLogin(){
+    fetch(`${baseURL}/login`, {
+        method: 'GET'},)
+    .then(response=>{
+        if (response.ok) {
+            if(response.status===200){
+                response.json()
+                .then(data=>{
+                    sessionStorage.setItem('jwt_token',data.token);
+                    sessionStorage.setItem('user_name',"Guest");
+                    window.location.href = 'index.html';
+                });
+            }
+        }   
+    })
+    .catch(error=>{
+        console.error('Error during login:', error);
+    });
 }

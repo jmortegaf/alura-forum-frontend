@@ -2,12 +2,6 @@ body, .main-content {
     padding-top: 60px;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
 .new-thread-menu {
     background-color: #161b22;
     padding: 20px;
@@ -215,20 +209,4 @@ button:hover {
 }
 .child-reply-card p{
     margin-top: 1px;
-}
-
-.footer {
-    margin-top: 2rem;
-    font-size: 12px;
-    color: #777;
-    text-align: center;
-}
-
-.footer a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
 }

@@ -1,7 +1,6 @@
+const baseURL = 'https://localhost:8080';
 
-const baseURL = 'https://artemis2.ddns.net:8080';
-const githubBaseURL="/alura-forum-frontend/"
-// const githubBaseURL="/"
+const githubBaseURL="/"
 
 function getData(endpoint,token) {
     return fetch(`${baseURL}${endpoint}`,{
@@ -25,11 +24,6 @@ function sendData(request_method,endpoint,token,data) {
             'Content-Type':'application/json',    
         },
         body: data,
-    })
-    .then(response => {
-        if(response.status==200){
-            console.log(response.json.id)
-        }
     })
     .catch(error => {
         console.error(error);
@@ -61,24 +55,33 @@ function logout(){
 }
 function showThreadContent(state){
     if(!state)
-        document.getElementById("thread-details").style.display="none";
+        document.getElementById("thread-details").hidden=true;
     else
-        document.getElementById("thread-details").style.display="";
+        document.getElementById("thread-details").hidden=false;
 }
 function showThreadsContent(state){
     if(!state){
-        document.getElementById('threads').style.display="none";
-        document.getElementById('new-thread-menu').style.display="none";
+        document.getElementById('threads').hidden=true;
+        document.getElementById('new-thread-menu').hidden=true;
     }
     else{
-        document.getElementById('threads').style.display="";
-        document.getElementById('new-thread-menu').style.display="";    
+        document.getElementById('threads').hidden=false;
+        document.getElementById('new-thread-menu').hidden=false;    
     }
 }
 function clearThreadsCard(){
-    document.getElementById("threads").style.display="none";
+    document.getElementById("threads").hidden=true;
 }
+function clearPage(){
+    document.getElementById('new-thread-menu').hidden=true;
+    document.getElementById('threads').hidden=true;
+    document.getElementById('threads').innerHTML="";
+    document.getElementById('thread-details').hidden=true;
 
+    document.getElementById('thread-card').innerHTML="";
+    document.getElementById('add-thread-reply').innerHTML="";
+    document.getElementById('replies-list-card').innerHTML="";
+}
 function loadPage(){
     document.getElementById("main-header").hidden=false;
     document.getElementById("main-container").hidden=false;
@@ -88,13 +91,15 @@ function loadPage(){
 
 function renderNewThreadMenu(){
     const token=getValidToken();
+    if(token==null)return;
     showThreadContent(false);
     showThreadsContent(true);
-    document.getElementById('threads').style.display="none";
+    document.getElementById('threads').hidden=true;
 }
 
 function renderMostPopularThreads(){
     const token=getValidToken();
+    if(token==null)return;
     getData("/threads?sort=replyCount,desc",token)
     .then(response => {
         showThreadsContent(true);
@@ -140,6 +145,7 @@ function renderMostPopularThreads(){
 
 function renderThreads(){
     const token=getValidToken();
+    if(token==null)return;
     getData("/threads?sort=creationDate,desc",token)
     .then(response => {
         showThreadContent(false);
@@ -182,22 +188,33 @@ function renderThreads(){
     })
 }
 
-
-
-
 function createNewThread(){
     const threadTitle=document.getElementById("thread-title").value;
     const threadMessage=document.getElementById("thread-message").value;
     const token=getValidToken();
+    if(token==null)return;
     sendData('POST',
-        `/threads`,
-        token,
-        JSON.stringify({title:threadTitle, message:threadMessage})
-    );
+            `/threads`,
+            token,
+            JSON.stringify({title:threadTitle, message:threadMessage})
+    )
+    .then(response=>{
+        if(response.status==200){
+            showNotification("Thread created successfully","success");
+            renderThreads();
+            clearThreadMenu();
+        }
+        else{
+            response.json().then(errorData=>{
+                showNotification(errorData.message,"error");
+            })
+        }
+    });
 }
 
 function renderThread(threadId){
     const token=getValidToken();
+    if(token==null)return;
     showThreadsContent(false);
     showThreadContent(true)
     getData("/threads/"+threadId,token)
@@ -345,19 +362,44 @@ function removeReplyMenu(threadId,replyId){
 
 function replyToThread(threadId){
     const token=getValidToken();
+    if(token==null)return;
     const message=document.getElementById("reply-message").value;
     sendData('POST',
         `/threads/${threadId}`,
         token,
-        JSON.stringify({message:message}));
-
+        JSON.stringify({message:message}))
+    .then(response=>{
+        if(response.status==200){
+            showNotification("Reply created successfully","success");
+        }
+        else{
+            response.json().then(errorData=>{
+                showNotification(errorData.message,"error");
+            })
+        }
+        clearPage();
+        renderThread(threadId);
+    });
 }
 
 function replyToReply(threadId,replyId){
     const token=sessionStorage.getItem('jwt_token');
+    if(token==null)return;
     const message=document.getElementById(`reply-message-${replyId}`).value;
     sendData('POST',
-        `/threads/${threadId}/${replyId}`,
+        `/reply/${replyId}`,
         token,
-        JSON.stringify({message:message}));
+        JSON.stringify({message:message}))
+    .then(response=>{
+        if(response.status==200){
+            showNotification("Reply created successfully","success");
+        }
+        else{
+            response.json().then(errorData=>{
+                showNotification(errorData.message,"error");
+            })
+        }
+        clearPage();
+        renderThread(threadId);
+    });
 }

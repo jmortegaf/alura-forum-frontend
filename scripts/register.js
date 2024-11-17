@@ -1,3 +1,5 @@
+const baseURL = 'https://localhost:8080';
+
 document.getElementById('register-form').addEventListener('submit', async function(event) {
     event.preventDefault(); // Prevent the form from refreshing the page
 
@@ -15,7 +17,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
     }
     else{
     try {
-        const response = await fetch('https://artemis2.ddns.net:8080/register', {
+        const response = await fetch(`${baseURL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

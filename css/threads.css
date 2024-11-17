@@ -1,0 +1,234 @@
+body, .main-content {
+    padding-top: 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.new-thread-menu {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.new-thread-menu h2 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+    color: #58a6ff;
+}
+.new-thread-title{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    outline: none;
+}
+.new-thread-title:focus{
+    border: 1px solid #58a6ff;
+
+}
+
+.new-thread-message  {
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    outline: none;
+}
+.new-thread-message:focus{
+    border: 1px solid #58a6ff;
+
+}
+.new-thread-btn{
+    padding: 10px 20px;
+    background-color: #238636;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.new-thread-btn:hover {
+    background-color: #2ea043;
+}
+
+.thread {
+    background-color: #161b22;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.thread-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #58a6ff;
+}
+
+.thread-preview {
+    font-size: 16px;
+    color:#c9d1d9;
+    margin-bottom: 0.5rem;
+}
+
+.thread-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.thread-footer .replies-btn {
+    background-color: #30363d;
+    color: #f9f9f9;
+    border: 0px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.replies-btn svg {
+    margin-right: 5px;
+    fill: #f9f9f9;
+}
+
+.thread-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.thread-card, .reply-card, .child-reply-card, .reply-menu, .replies-list-card .child-replies-list {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.child-replies-list{
+    margin-top: 15px;
+
+}
+.reply-menu{
+    margin-top: 15px;
+}
+
+.thread-card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.thread-meta {
+    color: #777;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.replies-section {
+    margin-top: 30px;
+}
+
+.add-reply {
+    margin-top: 40px;
+}
+.new-reply-message{
+    width: 100%;
+    padding: 10px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: none;
+    overflow: hidden;
+    margin-bottom: 10px;
+    outline: none;
+}
+.new-reply-message:focus{
+    border: 1px solid #58a6ff;
+
+}
+.new-reply-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.new-reply-btn{
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.reply-meta{
+    color: #777;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.reply-card {
+    margin-left: 0px;
+}
+
+.child-reply-card {
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+    background-color: #0d1117;
+}
+.child-reply-card p{
+    margin-top: 1px;
+}
+
+.footer {
+    margin-top: 2rem;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+
+.footer a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/threads.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Index</title>
 </head>
@@ -15,20 +16,19 @@
                 <button class="navbar-toggle" id="toggle-btn">☰</button>
             </div>
             <div class="navbar-right">
-                <a href="#" class="nav-item" id="profile-btn">
-                    <i class="fas fa-user"></i>
-                </a>
-                <a href="#" class="nav-item" id="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
+                <button id="user-button" class="user-btn">
+                    <span id="username"></span>
+                    <span class="user-icon">👤</span>
+                </button>
             </div>
         </nav>
     
         <aside class="sidebar hidden" id="sidebar">
             <ul>
-                <li><a href="#" class="nav-item" id="home-btn"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#" class="nav-item" id="popular-btn"><i class="fas fa-fire"></i> Most Popular</a></li>
-                <li><a href="#" class="nav-item" id="new-post-btn"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
+                <li><a href="index.html" class="nav-item" id="home-btn"><i class="fas fa-home"></i> Home</a></li>
+                <li><a class="nav-item" id="popular-btn" onclick="renderMostPopularThreads();"><i class="fas fa-fire"></i> Most Popular</a></li>
+                <li><a class="nav-item" id="new-post-btn" onclick="renderNewThreadMenu()"><i class="fas fa-plus-circle"></i> Create New Post</a></li>
+                <li><a href="" class="nav-item" id="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
     </header>

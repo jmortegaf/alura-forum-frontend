@@ -1,5 +1,3 @@
-const githubBaseURL="https://jmortegaf.github.io/alura-forum-frontend/"
-
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
 
@@ -19,14 +17,41 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             if (!response.ok) {
                 const errorData = await response.json();
+                if(response.status===401){
+                    const warning=document.getElementById('login-warning');
+                    warning.classList.add('show');
+                    warning.textContent='Username or password error';
+                    setTimeout(() => {
+                        warning.classList.remove('show');
+                    }, 1000);                }
             } else {
                 const data = await response.json();
                 const token=data.token;
-                sessionStorage.setItem('jwt_token',token)
+                sessionStorage.setItem('jwt_token',token);
+                sessionStorage.setItem('user_name',userName);
                 window.location.href = 'index.html';
             }
         } catch (error) {
             console.error('Error during login:', error);
+            const warning=document.getElementById('login-warning');
+            warning.classList.add('show');
+            warning.textContent='An error ocurred. Please try again.';
+            setTimeout(() => {
+                warning.classList.remove('show');
+            }, 1000);
         }
     });
 });
+const username=document.getElementById('username');
+const password=document.getElementById('password');
+username.oninvalid=showInvalidWarning(username);
+username.oninvalid=showInvalidWarning(password);
+username.oninput=clearInvalidWarning(username);
+username.oninput=clearInvalidWarning(password);
+
+function showInvalidWarning(input){
+    input.setCustomValidity("This field cannot be empty.");
+}
+function clearInvalidWarning(input){
+    input.setCustomValidity("");
+}

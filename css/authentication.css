@@ -1,16 +1,12 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
+body{
+    display: flex;    
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #0d1117;
-    font-family: Arial, sans-serif;
     flex-direction: column;
 }
 
-.login-card {
+.auth-card{
     background-color: #161b22;
     padding: 2rem;
     border-radius: 20px;
@@ -19,16 +15,15 @@ body {
     max-width: 400px;
     text-align: center;
 }
-.login-card h2 {
-    margin-bottom: 1.5rem;
-    font-size: 34px;
-    color:azure;
+.h1-auth{
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #f5f5f5;
 }
-
-.input-container {
+.auth-input-container {
     margin-bottom: 1rem;
 }
-.login-input{
+.auth-input{
     background-color: #0d1117;
     color: azure;
     width: 100%;
@@ -40,10 +35,10 @@ body {
     font-size: 24px;
     outline: none;
 }
-.login-input:focus{
+.auth-input:focus{
     border: 1px solid #58a6ff;
 }
-.login-btn{
+.auth-btn{
     width: 100%;
     padding: 10px;
     background-color: #238636;
@@ -52,12 +47,13 @@ body {
     border-radius: 15px;
     font-size: 24px;
     cursor: pointer;
+    margin-top: 25px;
 }
-.login-btn:hover {
+.auth-btn:hover{
     background-color: #2ea043;
 }
 
-.login-card a {
+.auth-card a {
     display: block;
     margin-top: 10px;
     color: #0066cc;
@@ -65,8 +61,25 @@ body {
     font-size: 14px;
 }
 
-.login-card a:hover {
+.auth-card a:hover {
     text-decoration: underline;
+}
+
+.auth-warning-message {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #b91c1c;
+    color: #f5f5f5;
+    font-size: 14px;
+    border-radius: 4px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.auth-warning-message.show {
+    opacity: 1; 
+    visibility: visible;
 }
 
 .footer {

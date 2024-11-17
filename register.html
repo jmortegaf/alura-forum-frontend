@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/authentication.css">
+</head>
+<body>
+    <div class="register-card auth-card">
+        <h1 class="h1-auth">Register</h1>
+        <form id="register-form">
+            <div class="auth-input-container">
+                <input type="text" class="auth-input" id="username" placeholder="Username" required />
+            </div>
+            <div class="auth-input-container">
+                <input type="email" class="auth-input" id="email" placeholder="Email" required />
+            </div>
+            <div class="auth-input-container">
+                <input type="password" class="auth-input" id="password" placeholder="Password" required />
+            </div>
+            <div class="auth-input-container">
+                <input type="password" class="auth-input" id="confirm-password" placeholder="Confirm Password" required />
+            </div>
+            <input type="submit" class="auth-btn" value="Register">
+        </form>
+        <div id="register-warning" class="auth-warning-message"></div>
+        <a href="login.html">Back to Login</a>
+    </div>
+
+    <div class="footer">
+        <p>Developed by <a href="https://github.com/jmortegaf" target="_blank">Jmortegaf</a></p>
+    </div>
+
+    <script src="scripts/register.js"></script>
+</body>
+</html>

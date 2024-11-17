@@ -30,5 +30,6 @@ document.addEventListener('click', function(event) {
         toggleButton.classList.remove('active-toggle');
     }
 });
+document.getElementById('username').innerHTML=sessionStorage.getItem('user_name');
 
 loadPage();
